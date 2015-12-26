@@ -69,6 +69,8 @@ pages.forEach(page => {
                 href: getSlugUrl(buildRelUrl(file, page.source)),
                 text: page.title || page.slug || path.basename(page.source).replace('.md', '')
             })),
+            relPathToRoot: buildRelUrl(page.source, ''),
+            slug: page.slug,
             description: page.description || config.description || '',
             content: html
         }));
