@@ -39,4 +39,5 @@ module.exports = (context) =>
     </ul>
     ${ context.content }
 </body>
-</html>`
+</html>
+`
