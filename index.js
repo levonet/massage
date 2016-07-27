@@ -27,7 +27,10 @@ let theme = config.theme || 'simple',
     }, {}),
 
     renderer = new marked.Renderer(),
-    link = renderer.link;
+    link = renderer.link,
+    highlight = function (code) {
+        return require('highlight.js').highlightAuto(code).value;
+    };
 
 function getSlugUrl(url) {
     var urlArr = url.split('/'),
@@ -49,6 +52,7 @@ renderer.link = (href, title, text) => {
 };
 
 marked.setOptions({renderer});
+marked.setOptions({highlight});
 
 pages.forEach(page => {
     let file = page.source;
